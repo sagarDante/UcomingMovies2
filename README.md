@@ -19,3 +19,6 @@ ViewPagerTransforms
 ## Contributer
 © Sagar D Chincholkar <sagar,chincholkar1988@gnail.com>
 
+## Licence & Copyright
+© Sagar D Chincholkar
+Licenced Under [MIT LICENCE](LICENCE)
