@@ -49,6 +49,7 @@ public class MovieDetailScreen extends AppCompatActivity implements com.daimajia
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail_screen);
+        //https://www.youtube.com/results?search_query=LSSGHvzMY60
 
         pDialog = new ProgressDialog(MovieDetailScreen.this);
         id = getIntent().getIntExtra("id",0);
@@ -56,7 +57,7 @@ public class MovieDetailScreen extends AppCompatActivity implements com.daimajia
         overview = getIntent().getStringExtra("Overview");
         rating=getIntent().getDoubleExtra("vote",0);
         rating1=(float)rating;
-        Toast.makeText(getApplicationContext(), "id: " + id+" :"+rating, Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(), "id: " + id+" :"+rating, Toast.LENGTH_LONG).show();
         REQUEST_URL = "https://api.themoviedb.org/3/movie/"+id+"/images?api_key=b7cd3340a794e5a2f35e3abb820b497f";
         Imageurls= new ArrayList<>();
         ratingBar=(RatingBar)findViewById(R.id.ratingBar);

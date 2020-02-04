@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             public void onRefresh() {
 
                 GetMoviesData();
+
 //                UpcomingMovie.clear();
 //                new MainActivity.UpcomingMovielist().execute();
             }
