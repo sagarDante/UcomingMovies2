@@ -122,7 +122,7 @@ public class MovieDetailScreen extends AppCompatActivity implements com.daimajia
 
                     } else {
                         responce=jsonObj.getString("result");
-                        Toast.makeText(getApplicationContext(), ""+responce, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getApplicationContext(), ""+responce, Toast.LENGTH_SHORT).show();
                         Log.e("Create Category Error: ", "> " + jsonObj.getString("message"));
                     }
 
@@ -160,7 +160,7 @@ public class MovieDetailScreen extends AppCompatActivity implements com.daimajia
             sliderLayout.setCustomAnimation(new DescriptionAnimation());
             sliderLayout.setDuration(4000);
             sliderLayout.addOnPageChangeListener(MovieDetailScreen.this);
-            Toast.makeText(MovieDetailScreen.this,"success", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(MovieDetailScreen.this,"success", Toast.LENGTH_SHORT).show();
 
 
         }
