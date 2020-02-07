@@ -1,10 +1,13 @@
 package com.sagar.chincholkar.retrofit2;
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,6 +19,7 @@ import com.sagar.chincholkar.retrofit2.Retrofit.APIInterface;
 import com.sagar.chincholkar.retrofit2.Retrofit.ApiClient;
 import com.sagar.chincholkar.retrofit2.Retrofit.GetUpcomingMovies.GetUpcomingMovies;
 import com.sagar.chincholkar.retrofit2.Retrofit.GetUpcomingMovies.Result;
+import com.sagar.chincholkar.retrofit2.Utils.PaginationScrollListener;
 import com.sagar.chincholkar.retrofit2.adapter.UpcomingMoviesApdapter;
 
 import java.util.ArrayList;
@@ -26,11 +30,18 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    private final static String API_KEY = "b7cd3340a794e5a2f35e3abb820b497f";
+    public final static String API_KEY = "b7cd3340a794e5a2f35e3abb820b497f";
     private static final String TAG = "Main Activity";
     private APIInterface apiInterface;
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private static final int PAGE_START = 1;
+    private boolean isLoading = false;
+    private boolean isLastPage = false;
+    // limiting to 5 for this tutorial, since total pages in actual API is very large. Feel free to modify.
+    private int TOTAL_PAGES = 5;
+    private int currentPage = PAGE_START;
+    ArrayList<Integer> movieids;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +62,9 @@ public class MainActivity extends AppCompatActivity {
 
                 GetMoviesData();
 
-//                UpcomingMovie.clear();
-//                new MainActivity.UpcomingMovielist().execute();
             }
         });
+
 
     }
 
@@ -91,13 +101,20 @@ public class MainActivity extends AppCompatActivity {
                     (Call<GetUpcomingMovies> call, Response<GetUpcomingMovies> response) {
                 ArrayList<Result> movies = new ArrayList<>();
                 movies.clear();
+                assert response.body() != null;
                 movies = response.body().getResults();
-                Collections.reverse(movies);
-                UpcomingMoviesApdapter upcomingMoviesApdapter = new UpcomingMoviesApdapter(getApplicationContext(), movies);
+                //Collections.reverse(movies);
+
+
+              /*  movieids=new ArrayList<>();
+                for(int i=0;i<movies.size();i++){
+                    movieids.add(movies.get(i).getId());
+
+                }
+                Log.d(TAG, "Number of movies received: " + movieids.size());*/
+                UpcomingMoviesApdapter upcomingMoviesApdapter = new UpcomingMoviesApdapter(MainActivity.this, movies);
                 recyclerView.setAdapter(upcomingMoviesApdapter);
                 swipeRefreshLayout.setRefreshing(false);
-
-                Log.d(TAG, "Number of movies received: " + movies.size());
             }
 
             @Override
@@ -107,4 +124,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }
