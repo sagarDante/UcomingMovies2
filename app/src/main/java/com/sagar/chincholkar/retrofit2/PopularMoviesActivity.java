@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -37,7 +38,7 @@ public class PopularMoviesActivity extends AppCompatActivity {
     private boolean isLastPage = false;
     private LinearLayoutManager manager;
     // limiting to 5 for this tutorial, since total pages in actual API is very large. Feel free to modify.
-
+    GridLayoutManager mgl_manager;
 
     ArrayList<Result> movies = new ArrayList<>();
     private FragmentManager fragmentManager;
@@ -52,12 +53,14 @@ public class PopularMoviesActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         movies.clear();
-        manager = new LinearLayoutManager(this);
+        mgl_manager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
+
+        //manager = new LinearLayoutManager(this);
         apiInterface = ApiClient.getClient().create(APIInterface.class);
         swipeRefreshLayout = findViewById(R.id.swipeRefresh);
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(manager);
+        recyclerView.setLayoutManager(mgl_manager);
         fragmentManager=getSupportFragmentManager();
         swipeRefreshLayout.setColorSchemeResources(R.color.orange, R.color.green, R.color.blue, R.color.red);
         swipeRefreshLayout.setRefreshing(true);

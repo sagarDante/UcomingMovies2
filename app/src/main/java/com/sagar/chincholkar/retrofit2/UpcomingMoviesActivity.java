@@ -3,6 +3,7 @@ package com.sagar.chincholkar.retrofit2;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -37,7 +38,7 @@ public class UpcomingMoviesActivity extends AppCompatActivity {
     // limiting to 5 for this tutorial, since total pages in actual API is very large. Feel free to modify.
     private int TOTAL_PAGES = 5;
     private int currentPage = PAGE_START;
-
+    GridLayoutManager mgl_manager;
     private APIInterface.SortBy defaultApiSortBy = APIInterface.SortBy.RELEASE_DATE_DESCENDING;
     private FragmentManager fragmentManager;
     @Override
@@ -50,7 +51,9 @@ public class UpcomingMoviesActivity extends AppCompatActivity {
         swipeRefreshLayout = findViewById(R.id.swipeRefresh);
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this))
+        mgl_manager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(mgl_manager);
         fragmentManager=getSupportFragmentManager();
         swipeRefreshLayout.setColorSchemeResources(R.color.orange, R.color.green, R.color.blue, R.color.red);
         GetMoviesData();

@@ -69,7 +69,7 @@ public class UpcomingMoviesApdapter extends RecyclerView.Adapter<UpcomingMoviesA
     @Override
     public UpcomingMoviesApdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v= LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_view,parent,false);
+                .inflate(R.layout.grid_item_view,parent,false);
 
 
         apiInterface = ApiClient.getClient().create(APIInterface.class);
