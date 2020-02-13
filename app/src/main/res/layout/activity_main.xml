@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:elevation="5dp">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -31,6 +33,7 @@
 
 
         <Button
+
             android:id="@+id/b_popular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,9 +41,9 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="4dp"
             android:layout_marginBottom="4dp"
-            android:background="@color/accent"
+            android:background="@drawable/custom_buttons"
             android:text="Popular"
-            android:textColor="@android:color/white"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.489"
@@ -57,9 +60,9 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="4dp"
             android:layout_marginBottom="4dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/custom_green"
             android:text="UpComing"
-            android:textColor="@android:color/white"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.489"
@@ -68,6 +71,23 @@
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@mipmap/ic_launcher" />
 
+        <Button
+            android:id="@+id/b_nowplaying"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+
+            android:background="@drawable/custom_buttons"
+            android:text="Now Playing"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/b_upcoming"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@mipmap/ic_launcher" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

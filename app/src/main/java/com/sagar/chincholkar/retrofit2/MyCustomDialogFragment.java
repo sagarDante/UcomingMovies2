@@ -43,10 +43,10 @@ public class MyCustomDialogFragment extends DialogFragment {
     @Override
     public void onResume() {
         super.onResume();
-        ViewGroup.LayoutParams params = Objects.requireNonNull(Objects.requireNonNull(getDialog()).getWindow()).getAttributes();
+        WindowManager.LayoutParams params = Objects.requireNonNull(Objects.requireNonNull(getDialog()).getWindow()).getAttributes();
         params.width = ViewGroup.LayoutParams.MATCH_PARENT;
         params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-        Objects.requireNonNull(getDialog().getWindow()).setAttributes((android.view.WindowManager.LayoutParams) params);
+        Objects.requireNonNull(getDialog().getWindow()).setAttributes(params);
     }
 
     @Override

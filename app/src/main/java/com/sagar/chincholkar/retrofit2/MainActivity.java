@@ -32,15 +32,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         apiInterface = ApiClient.getClient().create(APIInterface.class);
         Button btn_upcoming= findViewById(R.id.b_upcoming);
         Button btn_Popular=findViewById(R.id.b_popular);
-
+        Button ban_Nonpaying=findViewById(R.id.b_nowplaying);
         btn_upcoming.setOnClickListener(this);
         btn_Popular.setOnClickListener(this);
+        ban_Nonpaying.setOnClickListener(this);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        //getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -49,13 +50,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+     /*   int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
+*/
         return super.onOptionsItemSelected(item);
     }
 
@@ -68,6 +69,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.b_upcoming:
                 startActivity(new Intent(getApplicationContext(),UpcomingMoviesActivity.class));
+                break;
+            case R.id.b_nowplaying:
+                startActivity(new Intent(getApplicationContext(),NowPlayingMoviesActivity.class));
                 break;
         }
     }

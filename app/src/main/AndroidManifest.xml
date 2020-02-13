@@ -12,13 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PopularMoviesActivity"
+        <activity android:name=".NowPlayingMoviesActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".UpcomingMoviesActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".YoutubeVideoActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="Official Movie Trailer" />
+        <activity
+            android:name=".PopularMoviesActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UpcomingMoviesActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".YoutubeVideoActivity"
+            android:label="Official Movie Trailer"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -29,7 +34,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MovieDetailScreen"
+        <activity
+            android:name=".MovieDetailScreen"
             android:label="@string/Details" />
 
         <uses-library
