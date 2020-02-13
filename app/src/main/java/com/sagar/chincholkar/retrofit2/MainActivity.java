@@ -6,7 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -33,9 +33,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btn_upcoming= findViewById(R.id.b_upcoming);
         Button btn_Popular=findViewById(R.id.b_popular);
         Button ban_Nonpaying=findViewById(R.id.b_nowplaying);
+        Button ban_Toprated=findViewById(R.id.b_toprated);
+
+
         btn_upcoming.setOnClickListener(this);
         btn_Popular.setOnClickListener(this);
         ban_Nonpaying.setOnClickListener(this);
+        ban_Toprated.setOnClickListener(this);
     }
 
     @Override
@@ -72,6 +76,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.b_nowplaying:
                 startActivity(new Intent(getApplicationContext(),NowPlayingMoviesActivity.class));
+                break;
+            case R.id.b_toprated:
+                startActivity(new Intent(getApplicationContext(),TopRatedMoviesActivity.class));
                 break;
         }
     }

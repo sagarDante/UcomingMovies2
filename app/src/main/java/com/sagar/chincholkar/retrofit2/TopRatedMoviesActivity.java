@@ -23,9 +23,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NowPlayingMoviesActivity extends AppCompatActivity {
+public class TopRatedMoviesActivity extends AppCompatActivity {
+
     public final static String API_KEY = "b7cd3340a794e5a2f35e3abb820b497f";
-    private static final String TAG = "Now Playing";
+    private static final String TAG = "TopRated";
     private APIInterface apiInterface;
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -38,7 +39,7 @@ public class NowPlayingMoviesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_now_playing_movies);
+        setContentView(R.layout.activity_top_rated_movies);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -64,7 +65,7 @@ public class NowPlayingMoviesActivity extends AppCompatActivity {
          * GET List Resources
          **/
         swipeRefreshLayout.setRefreshing(true);
-        Call<GetUpcomingMovies> call = apiInterface.getNowPlayingMovies(API_KEY, defaultApiSortBy, PAGE_START);
+        Call<GetUpcomingMovies> call = apiInterface.getTopRatedMovies(API_KEY, defaultApiSortBy, PAGE_START);
         call.enqueue(new Callback<GetUpcomingMovies>() {
             @Override
             public void onResponse
@@ -75,7 +76,7 @@ public class NowPlayingMoviesActivity extends AppCompatActivity {
                 movies = response.body().getResults();
                 Collections.reverse(movies);
 
-                UpcomingMoviesApdapter upcomingMoviesApdapter = new UpcomingMoviesApdapter(NowPlayingMoviesActivity.this, movies,fragmentManager);
+                UpcomingMoviesApdapter upcomingMoviesApdapter = new UpcomingMoviesApdapter(TopRatedMoviesActivity.this, movies,fragmentManager);
                 recyclerView.setAdapter(upcomingMoviesApdapter);
                 swipeRefreshLayout.setRefreshing(false);
             }

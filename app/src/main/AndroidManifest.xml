@@ -12,13 +12,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NowPlayingMoviesActivity"
+        <activity android:name=".TopRatedMoviesActivity"
+            android:label="@string/toprated"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
+            android:name=".NowPlayingMoviesActivity"
+            android:label="@string/now_playing"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".PopularMoviesActivity"
+            android:label="@string/popular_movies"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".UpcomingMoviesActivity"
+            android:label="@string/upcoming"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".YoutubeVideoActivity"

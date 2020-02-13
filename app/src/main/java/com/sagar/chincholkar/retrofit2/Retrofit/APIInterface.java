@@ -35,6 +35,10 @@ public interface APIInterface {
 
     @GET("movie/popular")
     Call<GetUpcomingMovies> getPopularMovies(@Query("api_key") String apiKey,@Query("sort_by") SortBy sortBy ,@Query("page") int page);
+
     @GET("movie/now_playing")
     Call<GetUpcomingMovies> getNowPlayingMovies(@Query("api_key") String apiKey,@Query("sort_by") SortBy sortBy ,@Query("page") int page);
+
+    @GET("movie/top_rated")
+    Call<GetUpcomingMovies> getTopRatedMovies(@Query("api_key") String apiKey,@Query("sort_by") SortBy sortBy ,@Query("page") int page);
 }
