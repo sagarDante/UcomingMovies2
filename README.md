@@ -17,7 +17,7 @@ ViewPagerTransforms
 ---
 
 ## Contributer
-© Sagar D Chincholkar <sagar,chincholkar1988@gnail.com>
+© Sagar D Chincholkar <sagar,chincholkar1988@gmail.com>
 
 ## Licence & Copyright
 © Sagar D Chincholkar
